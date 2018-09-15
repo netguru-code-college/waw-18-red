@@ -8,6 +8,7 @@ class CreatePlaces < ActiveRecord::Migration[5.2]
       t.decimal :long
       t.integer :publisher_id
       t.integer :rate
+      
 
       t.timestamps
     end
