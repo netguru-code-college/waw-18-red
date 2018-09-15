@@ -5,8 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create({name: 'John Smith', email: 'john@smith.com', encrypted_password: '1234'})
-User.create({name: 'Jan Kowalski', email: 'jan@kowalski.com', encrypted_password: 'zaq1'})
+require 'ffaker'
+
+User.create({name: 'FFaker::Name.name ', email: 'FFaker::Internet.email', encrypted_password: '1234'})
+User.create({name: 'FFaker::Name.name ', email: 'FFaker::Internet.email', encrypted_password: '1234'})
+User.create({name: 'FFaker::Name.name ', email: 'FFaker::Internet.email', encrypted_password: '1234'})
+User.create({name: 'FFaker::Name.name ', email: 'FFaker::Internet.email', encrypted_password: '1234'})
+User.create({name: 'FFaker::Name.name ', email: 'FFaker::Internet.email', encrypted_password: '1234'})
+User.create({name: 'FFaker::Name.name ', email: 'FFaker::Internet.email', encrypted_password: '1234'})
+User.create({name: 'FFaker::Name.name ', email: 'FFaker::Internet.email', encrypted_password: '1234'})
+
 Place.create({name: 'Netguru', adress: 'al. Jana Pawła 29', description: 'Very cozy place', lat: 52.2389498, long: 20.9924182, publisher_id: 1, rate: 5})
 Place.create({name: 'Palac kultury', adress: '---', description: 'Monumental', lat: 52.231838, long: 21.003801, publisher_id: 2, rate: 3})
 Place.create({name: "Chopin's airport", adress: 'ul. Żwirki i Wigury 1', description: 'Very crowdy', lat: 52.2057139, long: 20.9227713, publisher_id: 1, rate: 4})
+Place.create({name:  FFaker::AddressPL.square, adress: FFaker::AddressPL.street_address, description: FFaker::LoremAR.paragraph, lat: FFaker::Geolocation.lat, FFaker::Geolocation.lng, publisher_id: rand(7), rate: rand(5)})
+Place.create({name:  FFaker::AddressPL.square, adress: FFaker::AddressPL.street_address, description: FFaker::LoremAR.paragraph, lat: FFaker::Geolocation.lat, FFaker::Geolocation.lng, publisher_id: rand(7), rate: rand(5)})
+Place.create({name:  FFaker::AddressPL.square, adress: FFaker::AddressPL.street_address, description: FFaker::LoremAR.paragraph, lat: FFaker::Geolocation.lat, FFaker::Geolocation.lng, publisher_id: rand(7), rate: rand(5)})
+Place.create({name:  FFaker::AddressPL.square, adress: FFaker::AddressPL.street_address, description: FFaker::LoremAR.paragraph, lat: FFaker::Geolocation.lat, FFaker::Geolocation.lng, publisher_id: rand(7), rate: rand(5)})
+Place.create({name:  FFaker::AddressPL.square, adress: FFaker::AddressPL.street_address, description: FFaker::LoremAR.paragraph, lat: FFaker::Geolocation.lat, FFaker::Geolocation.lng, publisher_id: rand(7), rate: rand(5)})
+Place.create({name:  FFaker::AddressPL.square, adress: FFaker::AddressPL.street_address, description: FFaker::LoremAR.paragraph, lat: FFaker::Geolocation.lat, FFaker::Geolocation.lng, publisher_id: rand(7), rate: rand(5)})
+Place.create({name:  FFaker::AddressPL.square, adress: FFaker::AddressPL.street_address, description: FFaker::LoremAR.paragraph, lat: FFaker::Geolocation.lat, FFaker::Geolocation.lng, publisher_id: rand(7), rate: rand(5)})
+Place.create({name:  FFaker::AddressPL.square, adress: FFaker::AddressPL.street_address, description: FFaker::LoremAR.paragraph, lat: FFaker::Geolocation.lat, FFaker::Geolocation.lng, publisher_id: rand(7), rate: rand(5)})
+Place.create({name:  FFaker::AddressPL.square, adress: FFaker::AddressPL.street_address, description: FFaker::LoremAR.paragraph, lat: FFaker::Geolocation.lat, FFaker::Geolocation.lng, publisher_id: rand(7), rate: rand(5)})

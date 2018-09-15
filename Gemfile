@@ -16,6 +16,7 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem "rolify"
+gem "ffaker"
 
 group :development, :test do
   gem 'pry-rails'
@@ -42,4 +43,3 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
