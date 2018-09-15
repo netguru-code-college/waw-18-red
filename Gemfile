@@ -17,7 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'simple_form'
 gem "twitter-bootstrap-rails", '~> 3.2.0'
-
+gem "rolify"
 
 group :development, :test do
   gem 'pry-rails'
