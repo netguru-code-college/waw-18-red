@@ -1,0 +1,14 @@
+language: ruby
+cache:
+  - bundler
+before_script:
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - bundle exec rake assets:precompile
+deploy:
+  provider: heroku
+  api_key:
+    secure: '95a45a7d657d99588ad21f5e96182f5bdf286bb5179c630e996eaa2a7b538947d1548cf4015114202326a95dd27befb15737bc24532fbf1f12ba0642bfd30594'
+  app: activity-app-ncc
+  on:
+    repo: netguru-code-college/waw-18-red
