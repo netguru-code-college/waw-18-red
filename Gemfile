@@ -16,7 +16,8 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'simple_form'
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+gem "twitter-bootstrap-rails", '~> 3.2.0'
+
 
 group :development, :test do
   gem 'pry-rails'
