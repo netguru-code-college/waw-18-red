@@ -12,10 +12,10 @@
   %h5.my-0.mr-md-auto.font-weight-normal Wifi-Book
   %nav.my-2.my-md-0.mr-md-3
 - if not user_signed_in?
-  %a.p-2.text-dark{:href => "/users/sign_up"} Sign up
-  %a.p-2.text-dark{:href => "/users/sign_in"} Sign in
+  %a.p-2.text-dark{:href => new_user_registration_path} Sign up
+  %a.p-2.text-dark{:href => new_user_session_path} Sign in
 - else
-  %a.p-2.text-dark{:href => "#"} Log out
+  %a.p-2.text-dark{:href => destroy_user_session_path} Logout
 %a.btn.btn-outline-primary{:href => "#"} Search
 <br />
 = yield
