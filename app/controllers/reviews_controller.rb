@@ -14,11 +14,11 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     if @review.save
-      flash[:success] = "The review was added successfully!"
+      flash[:success] = 'The review was added successfully!'
       redirect_to @review
     else
       render 'new'
-    end    
+    end
   end
 
   private
