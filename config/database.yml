@@ -78,8 +78,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: ncc_waw_production
-  username: ncc_waw
-  password: <%= ENV['NCC_WAW_DATABASE_PASSWORD'] %>
