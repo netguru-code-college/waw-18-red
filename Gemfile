@@ -17,6 +17,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'rubocop', '~> 0.59.1'
 end
 
 group :development do
