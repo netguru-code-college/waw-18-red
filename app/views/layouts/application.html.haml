@@ -9,13 +9,18 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
 .d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.mb-3.bg-white.border-bottom.shadow-sm
-  %h5.my-0.mr-md-auto.font-weight-normal Wifi-Networks
+  %h5.my-0.mr-md-auto.font-weight-normal Wifi-Book
   %nav.my-2.my-md-0.mr-md-3
-    %a.p-2.text-dark{:href => "users/sign_up"} Sign up
-    %a.p-2.text-dark{:href => "users/sign_in"} Sign in
-    %a.btn.btn-outline-primary{:href => "#"} Search
-    = yield
+- if not user_signed_in?
+  %a.p-2.text-dark{:href => "/users/sign_up"} Sign up
+  %a.p-2.text-dark{:href => "/users/sign_in"} Sign in
+- else
+  %a.p-2.text-dark{:href => "#"} Log out
+%a.btn.btn-outline-primary{:href => "#"} Search
+<br />
+= yield
 
 / https://getbootstrap.com/docs/4.1/examples/pricing/
 / view-source:https://getbootstrap.com/docs/4.1/examples/pricing/pricing.css
 / https://github.com/twbs/bootstrap-sass
+/ https://html2haml.herokuapp.com/
