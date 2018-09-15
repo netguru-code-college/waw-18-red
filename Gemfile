@@ -16,6 +16,7 @@ gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem "rolify"
+gem 'binding_of_caller'
 
 group :development, :test do
   gem 'pry-rails'
