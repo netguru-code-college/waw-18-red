@@ -1,29 +1,17 @@
-!!!
-%html
-  %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
-    %title NccWaw
-    = csrf_meta_tags
-    = csp_meta_tag
-    = stylesheet_link_tag    'https://getbootstrap.com/docs/3.3/dist/css/bootstrap.min.css'
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    / Bootstrap core CSS
   .site-wrapper
     .site-wrapper-inner
       .cover-container
         .masthead.clearfix
           .inner
-            %h3.masthead-brand WiFi-Networks
+            %h3.masthead-brand Cover
             %nav
               %ul.nav.masthead-nav
                 %li.active
-                  %a{:href => "#"} Search
+                  %a{:href => "#"} Home
                 %li
-                  %a{:href => "#"} Sign up
+                  %a{:href => "#"} Features
                 %li
-                  %a{:href => "#"} Sign in
+                  %a{:href => "#"} Contact
         .inner.cover
           %h1.cover-heading Cover your page.
           %p.lead Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.
@@ -47,4 +35,6 @@
   %script{:src => "../../dist/js/bootstrap.min.js"}
   / IE10 viewport hack for Surface/desktop Windows 8 bug
   %script{:src => "../../assets/js/ie10-viewport-bug-workaround.js"}
-  = yield
+
+
+  #= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'
