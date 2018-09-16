@@ -10,20 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_15_134627) do
+ActiveRecord::Schema.define(version: 2018_09_16_072243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "owners", force: :cascade do |t|
-    t.string "name"
-    t.string "resource_type"
-    t.bigint "resource_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name", "resource_type", "resource_id"], name: "index_owners_on_name_and_resource_type_and_resource_id"
-    t.index ["resource_type", "resource_id"], name: "index_owners_on_resource_type_and_resource_id"
-  end
 
   create_table "places", force: :cascade do |t|
     t.string "name"
@@ -63,16 +53,10 @@ ActiveRecord::Schema.define(version: 2018_09_15_134627) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "users_owners", id: false, force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "owner_id"
-    t.index ["owner_id"], name: "index_users_owners_on_owner_id"
-    t.index ["user_id", "owner_id"], name: "index_users_owners_on_user_id_and_owner_id"
-    t.index ["user_id"], name: "index_users_owners_on_user_id"
   end
 
   create_table "users_roles", id: false, force: :cascade do |t|
