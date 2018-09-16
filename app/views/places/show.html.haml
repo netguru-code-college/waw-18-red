@@ -33,3 +33,9 @@
 
 %p
   = link_to "<-- Back", root_path
+
+
+%h4 Add new review for  this place
+
+.content
+  = render partial: 'reviews/reviews', place: @place
