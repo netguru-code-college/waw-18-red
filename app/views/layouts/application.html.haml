@@ -17,10 +17,7 @@
   %a.p-2.text-dark{ href: new_user_registration_path} Sign up
   %a.p-2.text-dark{ href: new_user_session_path} Sign in
 - else
-  - if current_user.first_name.present? && current_user.last_name.present?
-    %p= "Hello #{current_user.first_name} #{current_user.last_name}"
-  - else 
-    %p= "Hello #{current_user.email}"
+  = render "layouts/navbar/username"
   %a.p-2.text-dark{ href: destroy_user_session_path} Logout
 %a.btn.btn-outline-primary{ href: "#"} Search
 <br />
