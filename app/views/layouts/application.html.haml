@@ -9,7 +9,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     %nav.navbar.navbar-default
-      .container-fluid
+      .container
         .navbar-header
           %a.navbar-brand{href: root_path} Brand
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
@@ -27,4 +27,5 @@
             .form-group
               %input.form-control{:placeholder => "Search", :type => "text"}/
             %button.btn.btn-default{:type => "submit"} Submit
-    = yield
+    .container
+      = yield
