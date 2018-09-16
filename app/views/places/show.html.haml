@@ -13,16 +13,16 @@
     var marker = new google.maps.Marker({position: uluru, map: map});
     var marker = new google.maps.Marker({position: uluru, map: map});
   }
-%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyB2DCsia93rK597KrNyKCSq-a-ZMrWs0xo&callback=initMap"}
+%script{async: "", defer: "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyB2DCsia93rK597KrNyKCSq-a-ZMrWs0xo&callback=initMap"}
   :cdata
 
 %table.table.table-hover
   %thead
     %tr
-      %th{:scope => "col"} Name
-      %th{:scope => "col"} Adress
-      %th{:scope => "col"} Rate
-      %th{:scope => "col"} Description
+      %th{scope: "col"} Name
+      %th{scope: "col"} Adress
+      %th{scope: "col"} Rate
+      %th{scope: "col"} Description
   %tbody
     %tr
       %td= @place.name
@@ -32,3 +32,12 @@
 
 %p
   = link_to "<-- Back", root_path
+
+
+%h4 Add new review for  this place
+
+.content
+  = render partial: 'reviews/reviews', place: @place
+
+.content
+  = render partial: 'reviews/show', place: @place

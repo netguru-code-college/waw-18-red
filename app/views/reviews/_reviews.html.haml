@@ -1,0 +1,13 @@
+%h1 Add new review for  this place
+- review = Review.new
+= simple_form_for(review, url: place_reviews_path(@place.id)) do |f|
+  .form-group
+    = f.label :review
+    = f.text_field :comment, class: "form-control"
+
+  .form-group
+    = f.label :rate
+    = f.text_field :rate, class: "form-control"
+
+  .form-group
+    = f.submit "Submit", class: "btn btn-default"
