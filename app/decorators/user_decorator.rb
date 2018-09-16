@@ -5,6 +5,7 @@ class UserDecorator < Draper::Decorator
 
   def username
     return "#{WELCOME_PREFIX} #{email}" if first_name.blank? && last_name.blank?
+
     "#{WELCOME_PREFIX} #{first_name} #{last_name}"
   end
 end
