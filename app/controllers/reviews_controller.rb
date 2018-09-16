@@ -12,7 +12,6 @@ class ReviewsController < ApplicationController
   end
 
   def create
-
     @place = Place.find(params[:place_id])
     @review = @place.reviews.create(review_params)
     if @review.save
@@ -26,12 +25,10 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-
     params.require(:review)
           .permit(:comment, :rate)
           .merge!(
             user_id: current_user.id,
           )
-
   end
 end
