@@ -15,8 +15,8 @@
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           - if user_signed_in?
             %ul.nav.navbar-nav
-              %li
-                %li= link_to "Log out", destroy_user_session_path, :method => :delete
+              %li= link_to current_user.decorate.username, root_path
+              %li= link_to "Log out", destroy_user_session_path, :method => :delete
           - else
             %ul.nav.navbar-nav
               %li
@@ -27,22 +27,4 @@
             .form-group
               %input.form-control{:placeholder => "Search", :type => "text"}/
             %button.btn.btn-default{:type => "submit"} Submit
-        / %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-        /   #navbarSupportedContent.collapse.navbar-collapse
-        /     %ul.navbar-nav.mr-auto
-        /       %li.nav-item
-        /         - unless  user_signed_in?
-        /           %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-        /             #navbarSupportedContent.collapse.navbar-collapse
-        /               %ul.navbar-nav.mr-auto
-        /                 %li.nav-item
-        /                   %a.nav-link{href: new_user_registration_path} Sign up
-        /           %a.p-2.text-dark{ href: new_user_registration_path} Sign up
-        /           %a.p-2.text-dark{ href: new_user_session_path} Sign in
-        /         - else
-        /           %p= current_user.decorate.username
-        /           %a.p-2.text-dark{ href: destroy_user_session_path} Logout
     = yield
-
-/ https://github.com/twbs/bootstrap-sass
-/ https://html2haml.herokuapp.com/
