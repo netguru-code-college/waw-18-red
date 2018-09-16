@@ -18,8 +18,10 @@ gem 'devise'
 gem 'simple_form'
 gem "twitter-bootstrap-rails", '~> 3.2.0'
 gem "rolify"
+gem 'binding_of_caller'
 gem "ffaker"
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+gem 'draper'
 
 group :development, :test do
   gem 'pry-rails'

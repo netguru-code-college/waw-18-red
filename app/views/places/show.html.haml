@@ -1,2 +1,16 @@
-%h1 Places#show
-%p Find me in app/views/places/show.html.haml
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th{:scope => "col"} #
+      %th{:scope => "col"} Name
+      %th{:scope => "col"} Adress
+      %th{:scope => "col"} Rate
+  %tbody
+    %tr
+      %td= @place.name
+      %td= @place.adress
+      %td= @place.rate.to_s
+
+%p
+  = link_to "<-- Back", root_path
