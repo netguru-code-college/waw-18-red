@@ -8,9 +8,25 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %nav.navbar.navbar-expand-lg.navbar-light.bg-light
-      %a.navbar-brand{:href => "#"} OPENwifi
-      #navbarSupportedContent.collapse.navbar-collapse
+    %nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          %a.navbar-brand{href: root_path} Brand
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          - unless user_signed_in?
+            %ul.nav.navbar-nav
+              %li
+                %li= link_to "Log out", destroy_user_session_path, :method => :delete
+          - else
+            %ul.nav.navbar-nav
+              %li.active
+                %a{href: new_user_registration_path} Sign up
+              %li
+                %a{href: new_user_session_path} Sign in
+          %form.navbar-form.navbar-right
+            .form-group
+              %input.form-control{:placeholder => "Search", :type => "text"}/
+            %button.btn.btn-default{:type => "submit"} Submit
         / %nav.navbar.navbar-expand-lg.navbar-light.bg-light
         /   #navbarSupportedContent.collapse.navbar-collapse
         /     %ul.navbar-nav.mr-auto
