@@ -18,6 +18,7 @@ gem 'devise'
 gem 'simple_form'
 gem "twitter-bootstrap-rails", '~> 3.2.0'
 gem "rolify"
+gem 'binding_of_caller'
 gem "ffaker"
 
 group :development, :test do
