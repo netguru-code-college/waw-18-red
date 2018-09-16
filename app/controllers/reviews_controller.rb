@@ -12,7 +12,9 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
+
+    @place = Place.find(params[:place_id])
+    @review = @place.reviews.create(review_params)
     if @review.save
       flash[:success] = 'The review was added successfully!'
       redirect_to @review
@@ -24,6 +26,12 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:commenter, :comment, :rate)
+
+    params.require(:review)
+          .permit(:comment, :rate)
+          .merge!(
+            user_id: current_user.id,
+          )
+
   end
 end
