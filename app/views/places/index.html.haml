@@ -12,9 +12,13 @@
       %tr
         %th{scope: "row"}
           = index + 1
-        %td= place.name
+        %td
+          %a{href: place_path(place)}
+            = place.name
         %td= place.adress
         %td= place.rate.to_s
 
 %p
   = link_to "+ Add new place", new_place_path
+
+%p= will_paginate @places, renderer: BootstrapPagination::Rails, previous_label: "Previous", next_label: "Next", inner_windows: 1, outer_window: 0
