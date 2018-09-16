@@ -16,15 +16,15 @@
     var marker = new google.maps.Marker({position: uluru, map: map});
     var marker = new google.maps.Marker({position: uluru, map: map});
   }
-%script{:async => "", :defer => "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyB2DCsia93rK597KrNyKCSq-a-ZMrWs0xo&callback=initMap"}
+%script{async: "", defer: "defer", :src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyB2DCsia93rK597KrNyKCSq-a-ZMrWs0xo&callback=initMap"}
   :cdata
 
 %table.table.table-hover
   %thead
     %tr
-      %th{:scope => "col"} Name
-      %th{:scope => "col"} Adress
-      %th{:scope => "col"} Rate
+      %th{scope: "col"} Name
+      %th{scope: "col"} Adress
+      %th{scope: "col"} Rate
   %tbody
     %tr
       %td= @place.name
@@ -45,10 +45,10 @@
   %table.table.table-hover
     %thead
       %tr
-        %th{:scope => "col"} #
-        %th{:scope => "col"} Author
-        %th{:scope => "col"} Review
-        %th{:scope => "col"} Rate
+        %th{scope: "col"} #
+        %th{scope: "col"} Author
+        %th{scope: "col"} Review
+        %th{scope: "col"} Rate
     %tbody
       - @place.reviews.each_with_index do |review, index|
         %tr
