@@ -17,7 +17,7 @@
   %a.p-2.text-dark{ href: new_user_registration_path} Sign up
   %a.p-2.text-dark{ href: new_user_session_path} Sign in
 - else
-  = render "layouts/navbar/username"
+  %p= current_user.decorate.username
   %a.p-2.text-dark{ href: destroy_user_session_path} Logout
 %a.btn.btn-outline-primary{ href: "#"} Search
 <br />
