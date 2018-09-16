@@ -13,13 +13,12 @@
   %h5.my-0.mr-md-auto.font-weight-normal
     = link_to "Wifi", root_path
   %nav.my-2.my-md-0.mr-md-3
-- unless  user_signed_in?
-  %a.p-2.text-dark{ href: new_user_registration_path} Sign up
-  %a.p-2.text-dark{ href: new_user_session_path} Sign in
+- if not user_signed_in?
+  %a.p-2.text-dark{:href => new_user_registration_path} Sign up
+  %a.p-2.text-dark{:href => new_user_session_path} Sign in
 - else
-  %p= current_user.decorate.username
-  %a.p-2.text-dark{ href: destroy_user_session_path} Logout
-%a.btn.btn-outline-primary{ href: "#"} Search
+  %a.p-2.text-dark{:href => destroy_user_session_path} Logout
+%a.btn.btn-outline-primary{:href => "#"} Search
 <br />
 = yield
 

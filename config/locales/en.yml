@@ -31,8 +31,5 @@
 
 en:
   hello: "Hello world"
-  decorators:
-    user:
-      hello_prefix: 'Hello'
   places:
     title: "All places with open Wifi"
