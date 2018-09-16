@@ -12,7 +12,9 @@
       %tr
         %th{scope: "row"}
           = index + 1
-        %td= place.name
+        %td
+          %a{href: place_path(place)}
+            = place.name
         %td= place.adress
         %td= place.rate.to_s
 
