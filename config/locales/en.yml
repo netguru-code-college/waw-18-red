@@ -31,3 +31,5 @@
 
 en:
   hello: "Hello world"
+  places:
+    title: "All places with open Wifi"
