@@ -22,11 +22,13 @@
       %th{:scope => "col"} Name
       %th{:scope => "col"} Adress
       %th{:scope => "col"} Rate
+      %th{:scope => "col"} Description
   %tbody
     %tr
       %td= @place.name
       %td= @place.adress
       %td= @place.rate.to_s
+      %td= @place.description
 
 %p
   = link_to "<-- Back", root_path
