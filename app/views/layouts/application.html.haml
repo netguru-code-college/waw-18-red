@@ -9,16 +9,23 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-.d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.mb-3.bg-white.border-bottom.shadow-sm
-  %h5.my-0.mr-md-auto.font-weight-normal Wifi-Book
-  %nav.my-2.my-md-0.mr-md-3
-- if not user_signed_in?
-  %a.p-2.text-dark{:href => new_user_registration_path} Sign up
-  %a.p-2.text-dark{:href => new_user_session_path} Sign in
-- else
-  %a.p-2.text-dark{:href => destroy_user_session_path} Logout
-%a.btn.btn-outline-primary{:href => "#"} Search
-<br />
+    .d-flex.flex-column.flex-md-row.align-items-center.p-3.px-md-4.mb-3.bg-white.border-bottom.shadow-sm
+    %header.navbar.navbar-fixed-top.navbar-inverse
+    .container
+      = link_to "Wifi-Book", root_path
+      %nav
+      %ul.nav.navbar-nav.navbar-right
+
+      %h5.my-0.mr-md-auto.font-weight-normal Wifi-Book
+      %nav.my-2.my-md-0.mr-md-3
+    - if not user_signed_in?
+      %a.p-2.text-dark{:href => new_user_registration_path} Sign up
+      %a.p-2.text-dark{:href => new_user_session_path} Sign in
+    - else
+      %a.p-2.text-dark{:href => destroy_user_session_path} Logout
+    %a.btn.btn-outline-primary{:href => "#"} Search
+    <br />
+    %header.navbar.navbar-fixed-top.navbar-inverse
 = yield
 
 / https://getbootstrap.com/docs/4.1/examples/pricing/
