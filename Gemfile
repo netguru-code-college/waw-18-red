@@ -20,6 +20,7 @@ gem "twitter-bootstrap-rails", '~> 3.2.0'
 gem "rolify"
 gem 'binding_of_caller'
 gem "ffaker"
+gem 'draper'
 
 group :development, :test do
   gem 'pry-rails'

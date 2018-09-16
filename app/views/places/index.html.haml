@@ -1,11 +1,20 @@
 %h1= I18n.t 'places.title'
 
 %table.table.table-hover
+  %thead
+    %tr
+      %th{:scope => "col"} #
+      %th{:scope => "col"} Name
+      %th{:scope => "col"} Adress
+      %th{:scope => "col"} Rate
   %tbody
-    - @places.each do |f|
+    - @places.each_with_index do |place, index|
       %tr
-        %th
-          = f.name + ", " + f.adress + ", rate: " + f.rate.to_s
+        %th{scope: "row"}
+          = index + 1
+        %td= place.name
+        %td= place.adress
+        %td= place.rate.to_s
 
 %p
   = link_to "+ Add new place", new_place_path
