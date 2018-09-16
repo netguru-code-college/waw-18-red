@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
     @review = @place.reviews.create(review_params)
     if @review.save
       flash[:success] = 'The review was added successfully!'
-      redirect_to @review
+      redirect_to @place
     else
       render 'new'
     end
