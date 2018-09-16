@@ -39,3 +39,21 @@
 
 .content
   = render partial: 'reviews/reviews', place: @place
+
+
+
+  %table.table.table-hover
+    %thead
+      %tr
+        %th{:scope => "col"} #
+        %th{:scope => "col"} Author
+        %th{:scope => "col"} Review
+        %th{:scope => "col"} Rate
+    %tbody
+      - Review.all.each_with_index do |review, index|
+        %tr
+          %th{scope: "row"}
+            = index + 1
+          %td= review.user.email
+          %td= review.comment
+          %td= review.rate.to_s
