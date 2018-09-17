@@ -20,6 +20,7 @@ class PlacesController < ApplicationController
       flash[:success] = 'The place has been added successfully!'
       redirect_to @place
     else
+      flash[:danger] = 'The place has not been added, check the form fields!'
       render 'new'
     end
   end
