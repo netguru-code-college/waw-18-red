@@ -10,6 +10,6 @@
       %tr
         %th{scope: "row"}
           = index + 1
-        %td= review.user.email
+        %td= review.user.first_name
         %td= review.comment
         %td= review.rate.to_s + "/5"

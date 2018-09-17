@@ -15,9 +15,10 @@ class ReviewsController < ApplicationController
     @place = Place.find(params[:place_id])
     @review = @place.reviews.create(review_params)
     if @review.save
-      flash[:success] = 'The review was added successfully!'
+      flash[:success] = 'The review has been added successfully!'
       redirect_to @place
     else
+      flash[:danger] = 'Your opinion has not been added, check its content!'
       redirect_to @place
     end
   end

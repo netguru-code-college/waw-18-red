@@ -1,4 +1,8 @@
-%h1 Add new review for  this place
+%h2 Add a new review for #{@place.name}
+
+- flash.each do |key, value|
+  = content_tag :div, value, class: "alert alert-#{key}"
+
 - review = Review.new
 = simple_form_for(review, url: place_reviews_path(@place.id)) do |f|
   .form-group
