@@ -27,14 +27,13 @@
     %tr
       %td= @place.name
       %td= @place.adress
-      %td= @place.rate.to_s
+      %td= @place.rate.to_s + "/5"
       %td= @place.description
 
 %p
   = link_to "<-- Back", root_path
 
-
-%h4 Add new review for  this place
+%br/
 
 .content
   = render partial: 'reviews/reviews', place: @place
