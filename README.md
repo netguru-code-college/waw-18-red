@@ -1,4 +1,4 @@
 # README
 
-## Heroku deployment instructions
-https://devcenter.heroku.com/articles/getting-started-with-rails5
+## OPENwifi website
+https://netguru-cc.herokuapp.com/
