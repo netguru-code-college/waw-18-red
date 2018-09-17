@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
       flash[:success] = 'The review was added successfully!'
       redirect_to @place
     else
-      render 'new'
+      redirect_to @place
     end
   end
 
