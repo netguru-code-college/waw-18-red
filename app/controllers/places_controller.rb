@@ -1,4 +1,6 @@
 class PlacesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  
   def index
     @places = Place.all.paginate(page: params[:page], per_page: 5).order('updated_at DESC')
   end
