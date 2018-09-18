@@ -35,8 +35,11 @@
 
 %br/
 
-.content
-  = render partial: 'reviews/reviews', place: @place
-
-.content
-  = render partial: 'reviews/show', place: @place
+- if user_signed_in?
+  .content
+    = render partial: 'reviews/reviews', place: @place
+  .content
+    = render partial: 'reviews/show', place: @place
+- else
+  .content
+    %h4 You have to #{link_to 'log in', new_user_session_path} to add review for this place
