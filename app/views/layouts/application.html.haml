@@ -28,6 +28,5 @@
               %input.form-control{:placeholder => "Search", :type => "text"}/
             %button.btn.btn-default{:type => "submit"} Submit
     .container
-      - flash.each do |key, value|
-        = content_tag :div, value, class: "alert alert-#{key}"
+      = flash_messages
       = yield
