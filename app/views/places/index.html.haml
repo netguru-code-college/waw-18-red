@@ -7,6 +7,8 @@
       %th{:scope => "col"} Name
       %th{:scope => "col"} Adress
       %th{:scope => "col"} Rate
+      - if user_signed_in?
+        %th{:scope => "col"} Actions
   %tbody
     - @places.each_with_index do |place, index|
       %tr
@@ -17,6 +19,13 @@
             = place.name
         %td= place.adress
         %td= place.rate.to_s + "/5"
+        - if user_signed_in? && current_user.id == place.publisher_id
+          %td
+            = link_to 'Show', place_path(place), class: 'btn btn-primary btn-xs'
+            = link_to 'Edit', edit_place_path(place), class: 'btn btn-warning btn-xs'
+            = link_to 'Delete', place_path(place), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs'
+        - else
+          %td
 
 %p
   = link_to "+ Add new place", new_place_path
