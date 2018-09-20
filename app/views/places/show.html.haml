@@ -10,12 +10,20 @@
       %th{scope: "col"} Adress
       %th{scope: "col"} Rate
       %th{scope: "col"} Description
+      - if user_signed_in? && current_user.id == @place.publisher_id
+        %th{:scope => "col"} Actions
   %tbody
     %tr
       %td= @place.name
-      %td= @place.adress
+      %td= @place.street.to_s + " " + @place.house_number + ", " + @place.city.to_s
       %td= @place.rate.to_s + "/5"
       %td= @place.description
+      - if user_signed_in? && current_user.id == @place.publisher_id
+        %td
+          = link_to 'Edit', edit_place_path(@place), class: 'btn btn-warning btn-xs'
+          = link_to 'Delete', place_path(@place), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs'
+      - else
+        %td
 
 %p
   = link_to "<-- Back", root_path

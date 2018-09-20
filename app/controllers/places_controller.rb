@@ -49,7 +49,7 @@ class PlacesController < ApplicationController
 
   def place_params
     params.require(:place)
-          .permit(:name, :adress, :description, :lat, :long, :rate, :street, :house_number, :local_number, :city)
+          .permit(:name, :description, :rate, :street, :house_number, :local_number, :city)
           .merge!(
             publisher_id: current_user.id,
           )

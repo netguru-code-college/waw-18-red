@@ -4,6 +4,6 @@ class Place < ApplicationRecord
 
   validates :rate, numericality: { less_than_or_equal_to: 5, only_integer: true }
 
-  geocoded_by :address
-  after_validation :geocode
+  # geocoded_by :address
+  # after_validation :geocode
 end
