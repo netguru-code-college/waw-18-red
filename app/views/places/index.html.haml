@@ -17,7 +17,8 @@
         %td
           %a{href: place_path(place)}
             = place.name
-        %td= place.adress
+        / %td= address(place)[0].to_s + " " + address(place)[1].to_s + ", " + address(place)[2].to_s
+        %td= place.street.to_s + " " + place.house_number + ", " + place.city.to_s
         %td= place.rate.to_s + "/5"
         - if user_signed_in? && current_user.id == place.publisher_id
           %td

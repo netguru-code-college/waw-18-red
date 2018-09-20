@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :find_place, only: [:show, :edit, :update, :destroy]
+  before_action :find_place, only: [:show, :edit, :update, :destroy, :find_place]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :place_owner, only: [:edit, :update, :destroy]
 
@@ -39,17 +39,17 @@ class PlacesController < ApplicationController
     end
   end
 
-def destroy
-    @place.destroy
-    flash[:success] = 'The place has been destroyed successfully!'
-    redirect_to root_path
-end
+  def destroy
+      @place.destroy
+      flash[:success] = 'The place has been destroyed successfully!'
+      redirect_to root_path
+  end
 
   private
 
   def place_params
     params.require(:place)
-          .permit(:name, :adress, :description, :lat, :long, :rate)
+          .permit(:name, :description, :rate, :street, :house_number, :local_number, :city)
           .merge!(
             publisher_id: current_user.id,
           )
@@ -59,10 +59,13 @@ end
     @place = Place.find(params[:id])
   end
 
-    def place_owner
-     unless @place.publisher_id == current_user.id
-      flash[:warning] = 'Access denied as you are not owner of this place.'
-      redirect_to root_path
-     end
-    end
+  def place_owner
+   unless @place.publisher_id == current_user.id
+    flash[:warning] = 'Access denied as you are not owner of this place.'
+    redirect_to root_path
+   end
+  end
+
+
+
 end
