@@ -23,6 +23,7 @@ gem 'binding_of_caller'
 gem "ffaker"
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 gem 'draper'
+gem 'geocoder', '~> 1.5'
 
 group :development, :test do
   gem 'pry-rails'
