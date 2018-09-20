@@ -12,7 +12,7 @@
       .container
         .navbar-header
           %a.navbar-brand{href: root_path} OPENwifi
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        .collapse.navbar-collapse
           - if user_signed_in?
             %ul.nav.navbar-nav
               %li= link_to current_user.decorate.username, root_path
@@ -23,10 +23,15 @@
                 %a{href: new_user_registration_path} Sign up
               %li
                 %a{href: new_user_session_path} Login
-          %form.navbar-form.navbar-right
+          %form.navbar-form.navbar-left
             .form-group
               %input.form-control{:placeholder => "Search", :type => "text"}/
             %button.btn.btn-default{:type => "submit"} Submit
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{href: root_path}
+                = "Places: "
+                %span.badge #{Place.count}
     .container
       = flash_messages
       = yield

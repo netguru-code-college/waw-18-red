@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :find_place, only: [:show, :edit, :update, :destroy, :find_place]
+  before_action :find_place, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :place_owner, only: [:edit, :update, :destroy]
 
