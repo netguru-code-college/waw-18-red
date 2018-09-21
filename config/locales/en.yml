@@ -36,3 +36,4 @@ en:
       hello_prefix: 'Hello'
   places:
     title: "All places with open Wifi"
+    title_today: "Your places added today"
