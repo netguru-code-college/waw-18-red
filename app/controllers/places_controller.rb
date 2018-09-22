@@ -1,7 +1,8 @@
 class PlacesController < ApplicationController
-  before_action :find_place, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :place_owner, only: [:edit, :update, :destroy]
+
+  before_action :find_place, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :place_owner, only: %i[edit update destroy]
   before_action :average_rate
 
 
@@ -10,9 +11,8 @@ class PlacesController < ApplicationController
 
   end
 
-  def show
-    
-  end
+
+  def show; end
 
   def new
     @place = Place.new
@@ -30,8 +30,7 @@ class PlacesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @place.update_attributes(place_params)
@@ -44,9 +43,9 @@ class PlacesController < ApplicationController
   end
 
   def destroy
-      @place.destroy
-      flash[:success] = 'The place has been destroyed successfully!'
-      redirect_to root_path
+    @place.destroy
+    flash[:success] = 'The place has been destroyed successfully!'
+    redirect_to root_path
   end
 
   def average_rate
@@ -81,12 +80,9 @@ class PlacesController < ApplicationController
   end
 
   def place_owner
-   unless @place.publisher_id == current_user.id
-    flash[:warning] = 'Access denied as you are not owner of this place.'
-    redirect_to root_path
-   end
+    unless @place.publisher_id == current_user.id
+      flash[:warning] = 'Access denied as you are not owner of this place.'
+      redirect_to root_path
+    end
   end
-
-
-
 end

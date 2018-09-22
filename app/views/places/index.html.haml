@@ -1,4 +1,4 @@
-%h1= I18n.t 'places.title'
+%h2= I18n.t 'places.title'
 
 %table.table.table-hover
   %thead
@@ -19,7 +19,7 @@
           %a{href: place_path(place)}
             = place.name
         / %td= address(place)[0].to_s + " " + address(place)[1].to_s + ", " + address(place)[2].to_s
-        %td= place.street.to_s + " " + place.house_number + ", " + place.city.to_s
+        %td= place.street + " " + place.house_number + ", " + place.city
         %td= place.rate.to_s + "/5"
         %td=  '%.02f' % place.avg_rate.to_s + "/5"
         - if user_signed_in? && current_user.id == place.publisher_id
@@ -34,3 +34,4 @@
   = link_to "+ Add new place", new_place_path
 
 %p= will_paginate @places, renderer: BootstrapPagination::Rails, previous_label: "Previous", next_label: "Next", inner_windows: 1, outer_window: 0
+

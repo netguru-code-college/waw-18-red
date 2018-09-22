@@ -2,7 +2,6 @@
 / The div element for the map
 
 %iframe{:allowfullscreen => "", :frameborder => "0", :height => "300", :src => "#{google_map(address)}", :style => "border:0", :width => "100%"}
-
 %table.table.table-hover
   %thead
     %tr
@@ -16,7 +15,8 @@
   %tbody
     %tr
       %td= @place.name
-      %td= @place.street.to_s + " " + @place.house_number + ", " + @place.city.to_s
+      / %td= @place.street + " " + @place.house_number + ", " + @place.city
+      %td
       %td= @place.rate.to_s + "/5"
       %td= '%.02f' % @place.avg_rate.to_s + "/5"
       %td= @place.description
