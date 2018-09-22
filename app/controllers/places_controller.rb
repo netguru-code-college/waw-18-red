@@ -2,12 +2,16 @@ class PlacesController < ApplicationController
   before_action :find_place, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :place_owner, only: [:edit, :update, :destroy]
+  before_action :average_rate
+
 
   def index
     @places = Place.all.paginate(page: params[:page], per_page: 5).order('updated_at DESC')
+
   end
 
   def show
+    
   end
 
   def new
@@ -45,11 +49,28 @@ class PlacesController < ApplicationController
       redirect_to root_path
   end
 
+  def average_rate
+
+    Place.all.each {|place|
+    if place.reviews.count == 0
+      place.avg_rate = place.rate
+      place.save
+    else
+      sum = place.rate.to_f
+      place.reviews.each {|review| sum += review.rate.to_f}
+      place.avg_rate = sum / (place.reviews.count + 1).to_f
+      place.save
+
+    end
+  }
+
+  end
+
   private
 
   def place_params
     params.require(:place)
-          .permit(:name, :description, :rate, :street, :house_number, :local_number, :city)
+          .permit(:name, :description, :rate, :avg_rate, :street, :house_number, :local_number, :city)
           .merge!(
             publisher_id: current_user.id,
           )
