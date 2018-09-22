@@ -7,7 +7,8 @@
     %tr
       %th{scope: "col"} Name
       %th{scope: "col"} Address
-      %th{scope: "col"} Rate
+      %th{scope: "col"} Publisher rate
+      %th{scope: "col"} Average rate
       %th{scope: "col"} Description
       - if user_signed_in? && current_user.id == @place.publisher_id
         %th{:scope => "col"} Actions
@@ -17,6 +18,7 @@
       / %td= @place.street + " " + @place.house_number + ", " + @place.city
       %td
       %td= @place.rate.to_s + "/5"
+      %td= '%.02f' % @place.avg_rate.to_s + "/5"
       %td= @place.description
       - if user_signed_in? && current_user.id == @place.publisher_id
         %td
@@ -39,3 +41,5 @@
     %br/
 .content
   = render partial: 'reviews/show', place: @place
+
+-
