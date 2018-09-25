@@ -33,5 +33,34 @@
 %p
   = link_to "+ Add new place", new_place_path
 
-%p= will_paginate @places, renderer: BootstrapPagination::Rails, previous_label: "Previous", next_label: "Next", inner_windows: 1, outer_window: 0
-
+  %p= will_paginate @places, renderer: BootstrapPagination::Rails, previous_label: "Previous", next_label: "Next", inner_windows: 1, outer_window: 0
+  - if user_signed_in?
+    %br/
+    %h2= I18n.t 'places.title_today'
+    %table.table.table-hover
+      %thead
+        %tr
+          %th{:scope => "col"} #
+          %th{:scope => "col"} Name
+          %th{:scope => "col"} Address
+          %th{:scope => "col"} Rate
+          - if user_signed_in?
+            %th{:scope => "col"} Actions
+      %tbody
+        - current_user.places_created_today.each_with_index do |place, index|
+          %tr
+            %th{scope: "row"}
+              = index + 1
+            %td
+              %a{href: place_path(place)}
+                = place.name
+            / %td= address(place)[0].to_s + " " + address(place)[1].to_s + ", " + address(place)[2].to_s
+            %td= place.street + " " + place.house_number + ", " + place.city
+            %td= place.rate.to_s + "/5"
+            - if user_signed_in? && current_user.id == place.publisher_id
+              %td
+                = link_to 'Show', place_path(place), class: 'btn btn-primary btn-xs'
+                = link_to 'Edit', edit_place_path(place), class: 'btn btn-warning btn-xs'
+                = link_to 'Delete', place_path(place), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger btn-xs'
+            - else
+              %td 
